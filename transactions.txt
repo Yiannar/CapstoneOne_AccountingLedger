@@ -1,0 +1,18 @@
+2023-04-15|10:13:25|ergonomic keyboard|Amazon|-89.50
+2023-04-15|11:15:00|Invoice 1001 paid|Joe|1500.00
+2023-04-15|09:30:00|Wireless mouse|Best Buy|29.99
+2023-04-15|12:45:00|Laptop bag|Staples|49.95
+2023-04-15|14:20:00|USB-C cable|Walmart|9.99
+2023-04-15|16:00:00|HDMI cable|Target|14.99
+2023-04-15|17:30:00|External hard drive|Office Depot|79.99
+2023-03-25|09:30:00|Wireless keyboard|Best Buy|39.99
+2023-03-28|12:45:00|Gaming mouse|Amazon|59.95
+2023-03-29|14:20:00|Bluetooth headphones|Walmart|29.99
+2023-03-30|16:00:00|Smartwatch|Target|199.99
+2023-03-31|17:30:00|Portable charger|Office Depot|24.99
+2022-04-15|09:30:00|Wireless speaker|Best Buy|79.99
+2022-04-15|12:45:00|External SSD|Staples|99.95
+2022-04-15|14:20:00|USB flash drive|Walmart|14.99
+2022-04-15|16:00:00|Bluetooth keyboard|Target|49.99
+2022-04-15|17:30:00|Monitor|Office Depot|199.99
+
