@@ -1,15 +1,16 @@
 package com.ps;
 import java.time.LocalDate;
 import java.time.LocalDateTime;
+import java.time.LocalTime;
 
 public class Transactions {
-    String date;
-    String time;
+    LocalDate date;
+    LocalTime time;
     String description;
     String vendor;
     float amount;
 
-    public Transactions(String date, String time, String description, String vendor, float amount) {
+    public Transactions(LocalDate date, LocalTime time, String description, String vendor, float amount) {
         this.date = date;
         this.time = time;
         this.description = description;
@@ -18,19 +19,19 @@ public class Transactions {
     }
 
 
-    public String getDate() {
+    public LocalDate getDate() {
         return date;
     }
 
-    public void setDate(String date) {
+    public void setDate(LocalDate date) {
         this.date = date;
     }
 
-    public String getTime() {
+    public LocalTime getTime() {
         return time;
     }
 
-    public void setTime(String time) {
+    public void setTime(LocalTime time) {
         this.time = time;
     }
 
@@ -61,8 +62,8 @@ public class Transactions {
     @Override
     public String toString() {
         return "Transactions{" +
-                "date='" + date + '\'' +
-                ", time='" + time + '\'' +
+                "date=" + date +
+                ", time=" + time +
                 ", description='" + description + '\'' +
                 ", vendor='" + vendor + '\'' +
                 ", amount=" + amount +

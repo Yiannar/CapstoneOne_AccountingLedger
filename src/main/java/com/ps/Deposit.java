@@ -1,51 +1,44 @@
 package com.ps;
 
-import java.io.BufferedReader;
-import java.io.FileReader;
+import java.io.FileWriter;
 import java.io.IOException;
+import java.time.LocalDate;
+import java.time.LocalTime;
+import java.util.ArrayList;
 import java.util.Scanner;
 
 
 public class Deposit {
-    public static void makeADeposit(Transactions[] transactionLibrary){
+    public static void makeADeposit(ArrayList<Transactions> transactionLibrary) {
         Scanner scanner = new Scanner(System.in);
 
-        try {
-            BufferedReader bufReader = new BufferedReader(new FileReader("transactions.txt"));
-            String line;
+        System.out.println("Please enter your deposit information");
+        System.out.println("Enter the description: ");
+        String description = scanner.nextLine();
 
-            while ((line = bufReader.readLine()) != null) {
-                String[] splitInput = line.split("\\|");
-                String date = splitInput[0];
-                String time = splitInput[1];
-                String description = splitInput[2];
-                String vendor = splitInput[3];
-                float amount = Float.parseFloat(splitInput[4]);
+        System.out.println("Enter the vendor: ");
+        String vendor = scanner.nextLine();
 
-                Transactions tempTransactions = new Transactions( date, time, description, vendor, amount );
-                transactionLibrary.clone();
-            }
-            bufReader.close();
-        } catch (
-                IOException e) {
-            e.printStackTrace();
+        System.out.println("Enter the amount: ");
+        float amount = scanner.nextFloat();
+
+        String enter = scanner.nextLine().toUpperCase();
+
+        LocalDate currentDate = LocalDate.now();
+        LocalTime currentTime = LocalTime.now();
+
+        Transactions deposit = new Transactions(currentDate, currentTime , description, vendor, amount);
+        transactionLibrary.add(deposit);
+
+        try{
+
+            FileWriter writer = new FileWriter("transactions.txt", true);
+            String format = deposit.getDate() + "|" + deposit.getTime() + "|" + deposit.getDescription() + "|" + deposit.getVendor() + "|" + deposit.getAmount() + "\n";
+            writer.write(format);
+            writer.close();
+        }catch(IOException e) {
+            System.out.println("ERROR: An unexpected error occurred");
         }
 
-        for (Transactions transaction : transactionLibrary) {
-            System.out.printf("Transaction: %s  %s %s %s %.2f\n",
-                    transaction.getDate(),
-                    transaction.getTime(),
-                    transaction.getDescription(),
-                    transaction.getVendor(),
-                    transaction.getAmount());
-        }
-
-        int command;
-        do {
-            System.out.println("\t1) Make a deposit");
-            System.out.println("\t2) Go back to home");
-            command = scanner.nextInt();
-        } while (command != 2);
     }
-
 }

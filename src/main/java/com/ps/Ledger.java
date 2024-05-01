@@ -2,7 +2,9 @@ package com.ps;
 import java.io.BufferedReader;
 import java.io.FileReader;
 import java.io.IOException;
+import java.time.LocalDate;
 import java.util.ArrayList;
+import java.time.LocalTime;
 
 public class Ledger {
 
@@ -19,7 +21,10 @@ public class Ledger {
                 String vendor = splitInput[3];
                 float amount = Float.parseFloat(splitInput[4]);
 
-                Transactions tempTransactions = new Transactions(date, time, description, vendor, amount);
+                LocalDate currentDate = LocalDate.now();
+                LocalTime currentTime = LocalTime.now();
+
+                Transactions tempTransactions = new Transactions(currentDate, currentTime, description, vendor, amount);
                 transactionLibrary.add(tempTransactions);
             }
             bufReader.close();
@@ -35,5 +40,7 @@ public class Ledger {
                     transaction.getVendor(),
                     transaction.getAmount());
         }
+
+
     }
 }
