@@ -5,10 +5,14 @@ import java.io.IOException;
 import java.time.LocalDate;
 import java.util.ArrayList;
 import java.time.LocalTime;
+import java.util.Scanner;
 
 public class Ledger {
 
     public static void ledgerInfo(ArrayList<Transactions> transactionLibrary) {
+
+        Scanner scanner = new Scanner(System.in);
+
         try {
             BufferedReader bufReader = new BufferedReader(new FileReader("transactions.txt"));
             String line;
@@ -32,14 +36,59 @@ public class Ledger {
             e.printStackTrace();
         }
 
-        for (Transactions transaction : transactionLibrary) {
-            System.out.printf("Transaction: %s  %s %s %s %.2f\n",
-                    transaction.getDate(),
-                    transaction.getTime(),
-                    transaction.getDescription(),
-                    transaction.getVendor(),
-                    transaction.getAmount());
-        }
+        do {
+            System.out.println("A) All entries");
+            System.out.println("D) Deposits");
+            System.out.println("P) Payments");
+            System.out.println("R) Reports");
+
+            String option = scanner.nextLine().toUpperCase();
+
+            switch (option) {
+                case "A":
+                    for (Transactions transaction : transactionLibrary) {
+                        System.out.printf("Transaction: %s  %s %s %s %.2f\n",
+                                transaction.getDate(),
+                                transaction.getTime(),
+                                transaction.getDescription(),
+                                transaction.getVendor(),
+                                transaction.getAmount());
+                    }
+                    break;
+
+                case "D":
+                    for (Transactions transaction: transactionLibrary){
+                    if (transaction.getAmount() >0 ){
+                        System.out.printf("Transaction: %s  %s %s %s %.2f\n",
+                                transaction.getDate(),
+                                transaction.getTime(),
+                                transaction.getDescription(),
+                                transaction.getVendor(),
+                                transaction.getAmount());
+                    }
+                    }
+                    break;
+
+                case "P":
+                    for (Transactions transaction: transactionLibrary){
+                        if (transaction.getAmount() < 0){
+                            System.out.printf("Transaction: %s  %s %s %s %.2f\n",
+                                    transaction.getDate(),
+                                    transaction.getTime(),
+                                    transaction.getDescription(),
+                                    transaction.getVendor(),
+                                    transaction.getAmount());
+                        }
+                    }
+                    break;
+
+
+
+                default:
+                    System.out.println("Invalid option. Please try again.");
+            }
+
+            } while (true);
 
 
     }

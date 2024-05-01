@@ -27,8 +27,7 @@ public class Main {
                     break;
 
                 case "P":
-                    System.out.println("Please enter your payment information");
-
+                  Payment.makeAPayment(transactionLibrary);
                     break;
 
                 case "L":
