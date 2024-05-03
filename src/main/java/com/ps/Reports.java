@@ -41,7 +41,7 @@ public class Reports {
             System.out.println("3) Year to date");
             System.out.println("4) Previous year");
             System.out.println("5) Search by vendor");
-            System.out.println("6) Back to main menu");
+            System.out.println("0) Back to main menu");
 
             int option = scanner.nextInt();
 
@@ -76,7 +76,7 @@ public class Reports {
         LocalDate startOfMonth = LocalDate.of(currentDate.getYear(), currentDate.getMonthValue(), 1);
         LocalDate endOfMonth = startOfMonth.plusMonths(1).minusDays(1);
 
-        System.out.println("***** Month-to-Date Report: ");
+        System.out.println("                              *****  Month-to-Date Report  *****                               ");
 
         for (Transactions transaction : transactionLibrary) {
             LocalDate transactionDate = transaction.getDate();
@@ -97,7 +97,7 @@ public class Reports {
         LocalDate startOfPreviousMonth = currentDate.minusMonths(1).withDayOfMonth(1);
         LocalDate endOfPreviousMonth = currentDate.minusMonths(1).withDayOfMonth(startOfPreviousMonth.lengthOfMonth());
 
-        System.out.println("***** Previous Month Report:");
+        System.out.println("                              *****   Previous Month Report  *****                               ");
 
 
         for (Transactions transaction : transactionLibrary) {
@@ -120,7 +120,7 @@ public class Reports {
         LocalDate startOfYear = LocalDate.of(currentDate.getYear(), 1, 1);
         LocalDate endOfYear = LocalDate.of(currentDate.getYear(), 12, 31);
 
-        System.out.println("***** Year-to-Date Report: ");
+        System.out.println("                              *****  Year-to-Date Report  *****                               ");
 
         for (Transactions transaction : transactionLibrary) {
             LocalDate transactionDate = transaction.getDate();
@@ -140,7 +140,7 @@ public class Reports {
         LocalDate startOfPreviousYear = LocalDate.of(currentDate.getYear() - 1, 1, 1);
         LocalDate endOfPreviousYear = LocalDate.of(currentDate.getYear() - 1, 12, 31);
 
-        System.out.println("Previous Year Report: ");
+        System.out.println("                              *****  Previous Year Report  *****                               ");
 
         for (Transactions transaction : transactionLibrary) {
             LocalDate transactionDate = transaction.getDate();
@@ -157,7 +157,7 @@ public class Reports {
 
     private static void searchByVendor(ArrayList<Transactions> transactionLibrary) {
         Scanner scanner = new Scanner(System.in);
-        System.out.println("***** Searching by vendor");
+        System.out.println("                              *****  Searching by vendor  *****                             ");
         System.out.println("Enter vendor name to search:");
         String vendorName = scanner.nextLine();
 

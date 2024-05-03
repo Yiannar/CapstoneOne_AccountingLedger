@@ -11,7 +11,7 @@ public class Main {
 
         String input;
         do {
-            System.out.println("\n Welcome to the online banking system! \n");
+            System.out.println("\n Welcome to the Online Accounting Ledger System ! \n");
             System.out.println("\tD) Add Deposit");
             System.out.println("\tP) Make a Payment");
             System.out.println("\tL) Ledger");

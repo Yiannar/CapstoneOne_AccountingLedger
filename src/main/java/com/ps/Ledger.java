@@ -36,7 +36,7 @@ public class Ledger {
             System.out.println("D) Deposits");
             System.out.println("P) Payments");
             System.out.println("R) Reports");
-            System.out.println("B) Back to Home Screen");
+            System.out.println("H) Back to Home Screen");
 
             String option = scanner.nextLine().toUpperCase();
 
@@ -82,8 +82,8 @@ public class Ledger {
                     Reports.reportsList(transactionLibrary);
                     break;
 
-                case "B":
-                    System.out.println("Exiting the program.");
+                case "H":
+                    System.out.println("Going back to home screen...");
                     return;
 
                 default:
